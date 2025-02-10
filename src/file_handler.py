@@ -34,7 +34,8 @@ class FileHandler:
         filepath = os.path.join(self.input_dir, file_name)
         try:
             doc = Document(filepath)
-            text = "\n".join([para.text for para in doc.paragraphs])
+            text = ("This is an AI generated audio\n" +
+                "\n".join(para.text for para in doc.paragraphs))
             return text.strip()
         except FileNotFoundError:
             print(f"Error: File {file_name} not found.")
