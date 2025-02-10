@@ -1,4 +1,4 @@
-import os
+from os import makedirs, listdir, path
 from docx import Document
 
 class FileHandler:
@@ -9,15 +9,15 @@ class FileHandler:
         self.input_dir = input_dir
         self.output_dir = output_dir
 
-        os.makedirs(self.input_dir, exist_ok=True)
-        os.makedirs(self.output_dir, exist_ok=True)
+        makedirs(self.input_dir, exist_ok=True)
+        makedirs(self.output_dir, exist_ok=True)
 
     def find_docx_files(self):
         """
         Finds the first .docx file in the input directory.
         Returns the filename or None if no .docx files are found.
         """
-        for filename in os.listdir(self.input_dir):
+        for filename in listdir(self.input_dir):
             if filename.endswith(".docx"):
                 return filename
             return None
@@ -31,7 +31,7 @@ class FileHandler:
             print("Error: No .docx file found in the input directory.")
             return None
 
-        filepath = os.path.join(self.input_dir, file_name)
+        filepath = path.join(self.input_dir, file_name)
         try:
             doc = Document(filepath)
             text = ("This is an AI generated audio\n" +

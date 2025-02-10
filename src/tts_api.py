@@ -1,6 +1,6 @@
 from pathlib import Path
 from openai import OpenAI
-import config
+from config import API_KEY
 
 
 class TextToSpeechAPI:
@@ -8,7 +8,7 @@ class TextToSpeechAPI:
     Handles requests to OpenAI's text-to-speech API.
     """
     def __init__(self):
-        self.client = OpenAI(api_key=config.API_KEY)
+        self.client = OpenAI(api_key=API_KEY)
 
     def text_to_speech(self, text, output_filename="output.mp3"):
         """
