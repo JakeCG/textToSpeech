@@ -18,7 +18,7 @@ class TextToSpeechAPI:
             output_path = Path("output") / output_filename
             response = self.client.audio.speech.create(
                 model="tts-1-hd",
-                voice="coral",
+                voice="fable",
                 input=text,
             )
             response.stream_to_file(output_path)
