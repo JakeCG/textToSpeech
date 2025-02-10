@@ -1,3 +1,4 @@
 /.env
-output/*
 .idea/*
+/src/output/*
+/src/input/*
